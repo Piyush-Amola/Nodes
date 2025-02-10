@@ -112,7 +112,7 @@ function saveData() {
 
     alert("Task saved successfully!");
     loadTasks();
-    window.location.href = "./index.html";
+    window.location.href = "../index.html";
   } else {
     alert("Please fill all the fields correctly.");
   }
@@ -281,7 +281,7 @@ function updateTask(taskToEdit) {
       categorySelect.value = "default";
       prioritySelect.value = "Low";
       alert("Task updated successfully!");
-      window.location.href = "./index.html";
+      window.location.href = "../index.html";
       loadTasks();
     } else {
       alert("Task not found.");
