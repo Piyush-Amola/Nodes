@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="disable-on-data">
+        <div class="hero-card">
+          <img src="./image/main.png" alt="" />
+          <h1>My Notes</h1>
+          <h2>Welcome to Your Notes</h2>
+          <p>
+            Keep track of all your important tasks and ideas here. Get started
+            by adding a new note below!
+          </p>
+          <button class="cta-button" onclick="addNote()">
+            <i class="fa-solid fa-notes-medical"></i> Add a Note
+          </button>
+        </div>
+      </div>
+
+      <div class="displayData">
+        <div class="header">
+          <img src="./image/main.png" alt="" />
+          <h1>My Notes</h1>
+        </div>
+        <div class="hero-card">
+          <h2>Welcome to Your Notes</h2>
+          <p>
+            Keep track of all your important tasks and ideas here. Get started
+            by adding a new note below!
+          </p>
+          <button class="cta-button" onclick="addNote()">
+            <i class="fa-solid fa-notes-medical"></i> Add a Note
+          </button>
+        </div>
+
+        <div class="search-container">
+          <i class="fa-sharp fa-solid fa-magnifying-glass search-icon"></i>
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Search..."
+            id="searchBox"
+            oninput="handleSearch()"
+          />
+        </div>
+
+        <div class="button-container">
+          <button id="allButton"><i class="fas fa-list"></i> All</button>
+          <button id="personalData">
+            <i class="fas fa-user"></i> Personal
+          </button>
+          <button id="workData"><i class="fas fa-briefcase"></i> Work</button>
+          <button id="otherData">
+            <i class="fas fa-ellipsis-h"></i> Other
+          </button>
+        </div>
+
+        <div id="myUnOrdList">
+          <ul class="todo-lists" id="noteList"></ul>
+        </div>
+
+        <div class="add-icon-container">
+          <button id="addIconButton" onclick="addNote()">
+            <img src="./image/add.png" alt="Add Icon" class="add-icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../image/main.png" alt="Notes Edit" class="logo" />
+        <h1>Edit Note</h1>
+      </div>
+
+      <button class="back-button" onclick="window.history.back()">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+        Go Back
+      </button>
+
+      <div class="form-group">
+        <label for="titleInput"> <i class="fas fa-pen"></i> Enter Title:</label>
+        <input
+          type="text"
+          id="titleInput"
+          placeholder="Enter title here"
+          required
+        />
+      </div>
+
+      <div class="datetime">
+        <p id="date"></p>
+        <p id="time"></p>
+      </div>
+
+      <div class="row">
+        <div class="category">
+          <label for="categorySelect">
+            <i class="fa-duotone fa-solid fa-list"></i> Type of category :
+          </label>
+          <select id="categorySelect">
+            <option value="default"><i class="fas fa-ban"></i> None</option>
+            <option value="Personal" data-icon="fa-user">Personal</option>
+            <option value="Work" data-icon="fa-briefcase">Work</option>
+            <option value="Other" data-icon="fa-cogs">Other</option>
+          </select>
+        </div>
+
+        <div class="priority">
+          <label for="prioritySelect"
+            ><i class="fas fa-exclamation-circle"></i> Priority of task:</label
+          >
+          <select id="prioritySelect">
+            <option value="Low" data-icon="fa-arrow-down">Low</option>
+            <option value="Medium" data-icon="fa-arrow-right">Medium</option>
+            <option value="High" data-icon="fa-arrow-up">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descriptionInput">
+          <i class="fas fa-pen"></i> Description:</label
+        >
+        <textarea
+          id="descriptionInput"
+          rows="5"
+          placeholder="Enter your description here"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group" id="button">
+        <button class="save-button"><i class="fas fa-save"></i> Save</button>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#categorySelect, #prioritySelect").select2({
+          templateResult: formatOptionWithIcon,
+          templateSelection: formatOptionWithIcon,
+        });
+
+        function formatOptionWithIcon(option) {
+          if (!option.id) return option.text;
+          var iconClass = $(option.element).data("icon");
+          if (iconClass) {
+            return $(
+              '<span><i class="fa ' +
+                iconClass +
+                '"></i> ' +
+                option.text +
+                "</span>"
+            );
+          }
+          return option.text;
+        }
+      });
+    </script>
+  </body>
+</html>
